@@ -1,0 +1,28 @@
+@import "../../sass/main.scss";
+
+.container__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4px 20px;
+
+    &--img {
+        max-width: 100%;
+        width: 200px;
+    }
+    &--signIn {
+        text-decoration: none;
+        margin-right: 0.5rem;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    a {
+        color: $secondary-color;
+    }
+}
+
+.fa-user-circle {
+    margin-right: 0.2rem;
+}

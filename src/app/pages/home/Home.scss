@@ -1,0 +1,53 @@
+@import "../../sass/main.scss";
+
+.container__home {
+    &__banniere {
+        position: relative;
+        text-align: center;
+        width: 100%;
+        
+        &--image {
+            background-image: url(../../assets/bank-tree.jpeg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 400px;
+            width: 100%;
+            background-position: 0% 33%;
+            position: relative; /* Ajouter une position relative pour que les éléments absolus soient positionnés relativement à cette division */
+        }
+
+        &__section {
+            position: absolute;
+            top: 50%;
+            right: 0; /* Positionner la section à droite de l'image */
+            transform: translate(-12%, -165%);
+            background-color: rgba(255, 255, 255, 0.8);
+            color: $secondary-color;
+            text-align: left;
+            margin: 2rem;
+            padding: 2rem;
+            z-index: 1;
+            width: 20%; /* Ajuster la largeur de la section */
+
+            &--subtitle {
+                font-weight: bold;
+                font-size: 1.2rem;
+                margin: 0;
+            }
+            &--text {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    &__icon {
+        display: flex;
+        flex-direction: row;
+        text-align: center;
+    }
+}
+
+.banniere {
+   
+   
+}
