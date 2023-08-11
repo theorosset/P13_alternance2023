@@ -12,7 +12,7 @@ const Header: FC = () => {
                 <img className="container__header--img" src={logo} alt="logo bank" />
             </NavLink>
             <div>
-                <NavLink to="/signIn" className="container__header--signIn">
+                <NavLink to="/login" className="container__header--signIn">
                     <i className="fa fa-user-circle"></i>
                     Sign In
                 </NavLink>
