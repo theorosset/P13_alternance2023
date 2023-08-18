@@ -22,8 +22,29 @@
     a {
         color: $secondary-color;
     }
+    &__connected {
+        display: flex;
+        align-items: center;
+        color: $secondary-color;
+        font-weight: bold;
+        &__username {
+            display: flex;
+            align-items: center;
+            &:hover {
+                text-decoration: underline;
+            }
+            cursor: pointer;
+        }
+        &--out {
+            margin-left: 1rem;
+            text-decoration: none;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
 }
 
-.fa-user-circle {
+.fa-user-circle, .fa-sign-out {
     margin-right: 0.2rem;
 }
