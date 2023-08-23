@@ -11,7 +11,6 @@ import { RootState } from "../../reducers";
 
 const Login: FC = () => {
     const form = useRef<HTMLFormElement>(null)
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
     const user = useSelector((state: RootState) => state.userReducer);
     const dispatch = useDispatch()
     const navigate = useNavigate()
