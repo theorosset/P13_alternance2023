@@ -18,9 +18,9 @@ const Login: FC = () => {
 
     useEffect(() => {
         if (user.isConnected) {
-            setIsLoggedIn(true);
+             navigate('/connected-home-page');
         }
-    }, [user.isConnected]);
+    }, [user.isConnected, navigate]);
 
 
     const handleSubmit = async (e: FormEvent) => {
@@ -44,13 +44,6 @@ const Login: FC = () => {
             }
         }
     };
-
-    useEffect(() => {
-        if (isLoggedIn) {
-            navigate('/connected-home-page');
-        }
-    }, [isLoggedIn, navigate]);
-
 
     return (
         <div className="container__login">
