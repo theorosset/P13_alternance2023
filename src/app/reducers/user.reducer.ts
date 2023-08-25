@@ -1,11 +1,11 @@
-import { GET_PROFILE, LOGIN_USER } from "../actions/user.action";
+import { GET_PROFILE, LOGIN_USER, UPDATE_PROFILE } from "../actions/user.action";
 
 
 export interface UserState {
     email: string,
     token: string,
-    firstName: '',
-    lastName: '',
+    firstName: string,
+    lastName: string,
     name: string,
     isConnected: boolean,
 }
@@ -30,6 +30,10 @@ export const userReducer = (state = initialState, action: any) => {
         ...state,
         ...action.payload
       }
+
+    case UPDATE_PROFILE : 
+      return action.payload
+      
       
     default:
       return state;

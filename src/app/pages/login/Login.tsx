@@ -1,4 +1,4 @@
-import { FC, FormEvent, useEffect, useRef, useState } from "react";
+import { FC, FormEvent, useEffect, useRef } from "react";
 import {useDispatch, useSelector } from "react-redux";
 import Footer from "../../components/footer/Footer";
 import Header from "../../components/header/Header";

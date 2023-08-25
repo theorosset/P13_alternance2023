@@ -1,0 +1,32 @@
+.container__button {
+    &--btn {
+        display: flex;
+        width: 100%;
+        padding: 8px;
+        font-size: 0.8rem;
+        font-weight: bold;
+        margin-top: 1rem;
+        border-color: #00bc77;
+        background-color: #00bc77;
+        color: #fff;
+    }
+    
+}
+
+.medium {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    width: 90px;
+}
+
+.large {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    width: 200px;
+    font-size: 1rem;
+    cursor: pointer;
+}
