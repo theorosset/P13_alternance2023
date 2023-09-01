@@ -168,8 +168,8 @@ paths:
           description: User not found!
   /transaction:
     get:
-      summary: Get user transaction.
-      description: This route is for get transaction of user.
+      summary: Get user transaction on the month.
+      description: This route is for get transaction of user on the month.
       tags:
         - Transaction
       parameters:
@@ -189,7 +189,7 @@ paths:
                 items:
                   type: object
                   properties:
-                    check:
+                    ArgentBankChecking:
                       type: string
                     date:
                       type: string
@@ -213,8 +213,10 @@ paths:
               properties:
                 date:
                   type: string
-                withUserInBank:
-                  type: boolean
+                nameUserTransaction: 
+                  type: string
+                UserBank:
+                  type: string
                 montant:
                   type: number
       security:
@@ -222,8 +224,12 @@ paths:
       responses:
         "200":
           description: Successfully created a new user transaction
+        "406":
+          description: User don't have ressource 
         "404":
           description: user not found
+        "500":
+          description: internal error
     put:
       summary: Update user transaction data.
       description: This route is for updating user transaction data.
@@ -239,7 +245,7 @@ paths:
                 updatedAt:
                   type: string
                 userHaveUpdated:
-                  type: boolean
+                  type: string
                 montant:
                   type: number
       security:
