@@ -13,22 +13,20 @@
             height: 400px;
             width: 100%;
             background-position: 0% 33%;
-            position: relative; /* Ajouter une position relative pour que les éléments absolus soient positionnés relativement à cette division */
+            position: relative;
         }
 
         &__section {
             position: absolute;
-            top: 50%;
-            right: 0; /* Positionner la section à droite de l'image */
-            transform: translate(-12%, -165%);
+            top: 6%;
+            right: 0;
             background-color: rgba(255, 255, 255, 0.8);
             color: $secondary-color;
             text-align: left;
             margin: 2rem;
             padding: 2rem;
             z-index: 1;
-            width: 20%; /* Ajuster la largeur de la section */
-
+            width: 250px;
             &--subtitle {
                 font-weight: bold;
                 font-size: 1.2rem;
@@ -47,7 +45,34 @@
     }
 }
 
-.banniere {
-   
-   
+@media screen and (max-width: 700px) {
+    .container__home {
+        &__icon {
+            flex-direction: column;
+        }
+        &__banniere {
+            &__section {
+                top: 4%;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 380px) { 
+    .container__home {
+        &__banniere {
+            &__section {
+                margin-right: 1rem;
+            }
+        }
+    }
+}
+@media screen and (max-width: 330px) { 
+    .container__home {
+        &__banniere {
+            &__section {
+                width: 200px;
+            }
+        }
+    }
 }

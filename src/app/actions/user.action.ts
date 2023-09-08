@@ -48,7 +48,6 @@ export const UPDATE_PROFILE = 'UPDATE_PROFILE'
 export const updateProfile = (userUpdate: Partial<UserState>, token: string) => {
   return async (dispatch: Dispatch) => {
     try {
-      console.log(userUpdate)
       const res = (await axios.put('http://localhost:3001/api/v1/user/profile', userUpdate,
         {
           headers: {
@@ -60,6 +59,27 @@ export const updateProfile = (userUpdate: Partial<UserState>, token: string) => 
       Object.assign(res.data.body, {isConnected: true, token: token})
 
       dispatch({ type: UPDATE_PROFILE, payload: res.data.body })
+    } catch (error) {
+      console.error(error)
+    }
+  }
+}
+
+export const DISCONNECT_USER = 'DISCONNECT_USER'
+
+
+export const disconnectUser = () => {
+  return async (dispatch: Dispatch) => {
+    try {
+      const user = {
+        email: '',
+        firstName: '',
+        lastName: '',
+        token: '',
+        name: '',
+        isConnected: false,
+      }
+      dispatch({ type: DISCONNECT_USER, payload: user })
     } catch (error) {
       console.error(error)
     }

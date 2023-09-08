@@ -21,7 +21,6 @@ const ConnectedHomePage: FC = () => {
     
     useEffect(() => {
         if (!user.isConnected) {
-            console.log(user)
             navigate('/login');
         } else if (!profileFetched) {
             getUserProfile();

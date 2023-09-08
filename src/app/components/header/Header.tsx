@@ -1,13 +1,18 @@
 import { FC } from 'react'
 import { NavLink } from 'react-router-dom'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { RootState } from '../../reducers'
+import { disconnectUser } from "../../actions/user.action";
 import logo from '../../assets/argentBankLogo.png'
 import './Header.scss'
 
 const Header: FC = () => {
   const user = useSelector((state: RootState) => state.userReducer)
-
+  const dispatch = useDispatch()
+  
+  const disconnectedUser = async () => {
+    await dispatch(disconnectUser() as any)
+  }
   return (
     <header className="container__header">
       <NavLink to="/">
@@ -25,7 +30,7 @@ const Header: FC = () => {
                 <i className="fa fa-user-circle"></i>
                 <p>{user.firstName}</p>
               </div>
-                <NavLink to="/login" className="container__header__connected--out">
+                <NavLink to="/login" className="container__header__connected--out" onClick={disconnectedUser}>
                   <i className="fa fa-sign-out"></i>
                     Sign out
                 </NavLink>

@@ -1,5 +1,3 @@
-/* EditProfile.tsx */
-
 import { FC, useEffect, useRef, useState } from "react";
 import "./EditProfile.scss";
 import { UserState } from "../../reducers/user.reducer";
@@ -60,7 +58,7 @@ const EditProfile: FC<Props> = ({userInfo, setShow, updateShow}) => {
                     <button className="container__modal__close--button" onClick={closeModal}>x</button>
                 </div>
                 <div className="container__modal__header">
-                    <h2 className="container__modal__header--title">Edit Profile</h2>
+                    <h2 className="container__modal__header--title">Edit your profile</h2>
                 </div>
                 <div className="container__modal__content">
                     <form ref={form} className="container__modal__content__form" onSubmit={(e) => handleSubmit(e)}>
@@ -71,7 +69,7 @@ const EditProfile: FC<Props> = ({userInfo, setShow, updateShow}) => {
                         <label className="label-input"  htmlFor="email">Your email</label>
                         <input type="text" id="email"  defaultValue={userInfo.email}/>
                         <label className="label-input"  htmlFor="password">Your password</label>
-                        <input type="text" id="password" />
+                        <input type="password" id="password" />
                         <br /><br />
                         <ButtonComponent text="Update your profile" useClassName="large"/>
                     </form>

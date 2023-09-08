@@ -13,7 +13,7 @@ const Home: FC = () => {
             <Header />
             <main>
                 <div className="container__home__banniere">
-                    <section className="container__home__banniere__section">
+                    <section className="container__home__banniere__section right-center">
                         <p className="container__home__banniere__section--subtitle">No fees.</p>
                         <p className="container__home__banniere__section--subtitle">No minimum deposit.</p>
                         <p className="container__home__banniere__section--subtitle">High interest rates.</p>
