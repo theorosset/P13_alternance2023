@@ -1,4 +1,4 @@
-import { FC, FormEvent, useEffect, useRef } from "react";
+import { FC, FormEvent, useEffect, useRef, useState } from "react";
 import {useDispatch, useSelector } from "react-redux";
 import Footer from "../../components/footer/Footer";
 import Header from "../../components/header/Header";
@@ -12,6 +12,7 @@ import { RootState } from "../../reducers";
 const Login: FC = () => {
     const form = useRef<HTMLFormElement>(null)
     const user = useSelector((state: RootState) => state.userReducer);
+    const [isInvalid, setIsInvalid] = useState(false) 
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
@@ -36,11 +37,8 @@ const Login: FC = () => {
             };
 
             // Dispatch loginUser action and wait for it to complete
-            try {
-                await dispatch(loginUser(postData) as any);
-            } catch (error) {
-                console.error(error)
-            }
+            const res = await dispatch(loginUser(postData) as any);
+            res === 'error' ? setIsInvalid(true) : setIsInvalid(false)
         }
     };
 
@@ -65,6 +63,9 @@ const Login: FC = () => {
                         <label htmlFor="remember-me">Remember me</label>
                     </div>
                     <button className="container__login__main__section--btn">Sign In</button>
+                    { isInvalid &&
+                        <p className="error" >Email or password is incorrect</p>
+                    }
                 </form>
             </section>
             </main>

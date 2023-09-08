@@ -19,6 +19,7 @@ export const loginUser = (userData: Partial<UserState>) => {
       dispatch({ type: LOGIN_USER, payload: user })
     } catch (error) {
       console.error(error)
+      return 'error'
     }
   }
 }

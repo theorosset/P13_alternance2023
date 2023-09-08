@@ -168,8 +168,8 @@ paths:
           description: User not found!
   /transaction:
     get:
-      summary: Get user transaction on the month.
-      description: This route is for get transaction of user on the month.
+      summary: Get user transaction on the month or get one transaction.
+      description: This route is for get transaction of user on the month on for one transaction.
       tags:
         - Transaction
       parameters:
@@ -177,6 +177,11 @@ paths:
           in: query
           schema:
             type: string
+        - name: 'transactionId'
+          in: query
+          schema:
+            type: number
+          required: false    
       security:
         - bearerAuth: []
       responses:
@@ -242,6 +247,10 @@ paths:
             schema:
               type: object
               properties:
+                userId:
+                  type: string
+                transactionId:
+                  type: string
                 updatedAt:
                   type: string
                 userHaveUpdated:
@@ -253,6 +262,31 @@ paths:
       responses:
         "200":
           description: Successfully updated user transaction data
+        "400":
+          description: bad request
+        "404":
+          description: user or transaction not found
+        "403":
+          description: just admin can do this
+    delete:
+      summary: Delete user transaction data.
+      description: This route is for updating user transaction data.
+      tags:
+        - Transaction
+      parameters:
+        - name: 'userId'
+          in: query
+          schema:
+            type: string
+        - name: 'transactionId'
+          in: query
+          schema:
+            type: string
+      security:
+        - bearerAuth: []
+      responses:
+        "200":
+          description: Successfully deletes user transaction data
         "400":
           description: bad request
         "404":
