@@ -30,7 +30,12 @@ const Login: FC = () => {
         if (current) {
             const usernameInput = current[0] as HTMLInputElement;
             const passwordInput = current[1] as HTMLInputElement;
-
+            const rememberUser = current[2] as HTMLInputElement;
+            
+            if(rememberUser.checked) {
+                localStorage.setItem('userMail', usernameInput.value)
+            }
+            
             const postData = {
                 email: usernameInput.value,
                 password: passwordInput.value
@@ -52,7 +57,7 @@ const Login: FC = () => {
                 <form ref={form} onSubmit={(e) => handleSubmit(e)}>
                     <div className="container__login__main__section--input">
                         <label htmlFor="username">Username</label>
-                        <input type="text" id="username" />
+                        <input type="text" id="username" defaultValue={localStorage.getItem('userMail') ?? ''}/>
                     </div>
                     <div className="container__login__main__section--input">
                         <label htmlFor="password">Password</label>
